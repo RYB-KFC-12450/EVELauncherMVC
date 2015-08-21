@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Xml;
 using EVELauncherMVC.Controllers.Tokens;
 using EVELauncherMVC.Controllers.API;
 using EVELauncherMVC.Models.API;
@@ -94,8 +95,20 @@ namespace EVELauncherMVC.Controllers
 
         public ServerStatus GetServerStatus()
         {
-            ServerStatus SS = JsonConvert.DeserializeXmlNode(XmlApi.Get());
-            return SS;
+            string XML = XmlApi.Get("https://api.eve-online.com.cn/server/ServerStatus.xml.aspx");
+            if (XML != "NetErr")
+            {
+                XmlDocument x = new XmlDocument();
+                x.LoadXml(XML);
+                string JSON = JsonConvert.SerializeXmlNode(x);
+                ServerStatus SS = JsonConvert.DeserializeObject<ServerStatus>(JSON);
+                return SS;
+            }
+            else
+            {
+                ServerStatus SS = new ServerStatus();
+                return SS;
+            }
         }
     }
 }
