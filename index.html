@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <title>自制EVE启动器</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">EVELauncher</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">EVE 国服自制启动器</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://blog.imi.moe" target="_blank">关于我</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="alert alert-dismissiable alert-danger">
+            <button class="close" type="button" data-dismiss="alert"><span class="fa fa-close"></span></button>
+            <h4><span class="fa fa-warning" style="font-size:30px;"></span>免责声明</h4>
+            <p>这个启动器仅供测试用，已经尽量尝试模拟了官方启动器的登录流程，不保证会有出入。可能存在封号风险！</p>
+        </div>
+        <div class="alert alert-dismissable alert-warning">
+            <button class="close" type="button" data-dismiss="alert"><span class="fa fa-close"></span></button>
+            <h4><span class="fa fa-info" style="font-size:30px;"></span> 兼容性</h4>
+            <p><span class="fa fa-check"></span> 支持Windows 7及以上操作系统。需要.NET Framework 4.5</p>
+            <p><span class="fa fa-close"></span> 此安装方式在Windows 10 Insider Preview上面可能存在问题。</p>
+        </div>
+        <div class="jumbotron">
+            <h1>这是一个自制的EVE国服启动器</h1>
+            <p>挖坑中…</p>
+            <a class="btn btn-primary" href="setup.exe"><span class="fa fa-download"></span> 安装（非IE浏览器）</a>           
+            <a class="btn btn-success" href="EVELauncher.application"><span class="fa fa-cloud-download"></span> 如果是新版IE的话可以试试这个</a>
+            <br />
+            <small><span class="fa fa-check"></span> 注：程序会自动检查更新，无需经常查看此网页。</small>
+        </div>
+        <div class="jumbotron">
+            <p>当前版本：</p>
+            <h1>Ver 1.0.0.3</h1>
+            <p>修复了界面Bug。</p>
+        </div>
+    </div>
+</body>
+</html>
