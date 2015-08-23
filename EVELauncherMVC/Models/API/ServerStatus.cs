@@ -8,6 +8,12 @@ namespace EVELauncherMVC.Models.API
 {
     class ServerStatus
     {
+        public ServerStatus()
+        {
+            eveApi.cachedUntil = "";
+            eveApi.result.serverOpen = "";
+            eveApi.result.onlinePlayers = "";
+        }
         public ServerStatus_eveApi eveApi = new ServerStatus_eveApi();
     }
     class ServerStatus_xml
@@ -24,7 +30,7 @@ namespace EVELauncherMVC.Models.API
     }
     class ServerStatus_result
     {
-        string serverOpen { get; set; }
-        string onlinePlayers { get; set; }
+        public string serverOpen { get; set; }
+        public string onlinePlayers { get; set; }
     }
 }

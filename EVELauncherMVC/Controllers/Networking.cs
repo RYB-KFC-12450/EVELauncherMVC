@@ -107,6 +107,7 @@ namespace EVELauncherMVC.Controllers
             else
             {
                 ServerStatus SS = new ServerStatus();
+                SS.eveApi.result.serverOpen = "Network Error";
                 return SS;
             }
         }
