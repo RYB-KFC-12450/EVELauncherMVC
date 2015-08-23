@@ -32,8 +32,10 @@ namespace EVELauncherMVC.Controllers
         {
             if (String.IsNullOrEmpty(BearerAccessToken.Value))
             {
-                if (BearerAccessToken.Get(UserName, Password, CookieContainer))
+                BearerAccessToken.SetCookieContainer(CookieContainer);
+                if (BearerAccessToken.Get(UserName, Password))
                 {
+                    CookieContainer = BearerAccessToken.GetCookieContainer();
                     if (!String.IsNullOrEmpty(BearerAccessToken.Value))
                     {
                         return BearerAccessToken.Value;
@@ -63,8 +65,10 @@ namespace EVELauncherMVC.Controllers
         {
             if (String.IsNullOrEmpty(ClientAccessToken.Value))
             {
-                if (ClientAccessToken.Get(BearerAccessToken, CookieContainer))
+                ClientAccessToken.SetCookieContainer(CookieContainer);
+                if (ClientAccessToken.Get(BearerAccessToken))
                 {
+                    CookieContainer = ClientAccessToken.GetCookieContainer();
                     if (!String.IsNullOrEmpty(ClientAccessToken.Value))
                     {
                         return ClientAccessToken.Value;

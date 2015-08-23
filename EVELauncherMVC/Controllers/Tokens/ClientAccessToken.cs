@@ -12,7 +12,8 @@ namespace EVELauncherMVC.Controllers.Tokens
     class ClientAccessToken
     {
         public string Value = null;
-        public bool Get(string BearerAccessToken, CookieContainer CookieContainer)
+        CookieContainer CookieContainer;
+        public bool Get(string BearerAccessToken)
         {
             try
             {
@@ -41,6 +42,15 @@ namespace EVELauncherMVC.Controllers.Tokens
             {
                 return false;
             }
+        }
+        public void SetCookieContainer(CookieContainer Container)
+        {
+            CookieContainer = Container;
+        }
+
+        public CookieContainer GetCookieContainer()
+        {
+            return CookieContainer;
         }
     }
 }

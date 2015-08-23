@@ -11,8 +11,9 @@ namespace EVELauncherMVC.Controllers.Tokens
 {
     class BearerAccessToken
     {
+        CookieContainer CookieContainer = new CookieContainer();
         public string Value = null;
-        public bool Get(string UserName, string Password, CookieContainer CookieContainer)
+        public bool Get(string UserName, string Password)
         {
             try
             {
@@ -53,12 +54,23 @@ namespace EVELauncherMVC.Controllers.Tokens
                 BearerGetResponse.Close();
                 Match BearerAccessTokenMatch = Regex.Match(BearerSecondLoginResponse, @"access.token.(.*).amp.token.type");
                 Value = BearerAccessTokenMatch.Groups[1].Value;
+                
                 return true;
             }
             catch (WebException)
             {
                 return false;
             }
+        }
+
+        public void SetCookieContainer (CookieContainer Container)
+        {
+            CookieContainer = Container;
+        }
+
+        public CookieContainer GetCookieContainer()
+        {
+            return CookieContainer;
         }
     }
 }
